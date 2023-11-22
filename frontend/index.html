@@ -5,9 +5,7 @@
 <!-- START -->
 
 <link rel="icon" type="image/png" href="/image/o.png">
-
-<link href="lex-web-ui-loader.min.css" rel="stylesheet"><link rel="stylesheet" href="./custom-chatbot-style.css">
-
+  
 <!-- Meta -->
 <meta charset="utf-8" data-dynamic-entity="1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" data-dynamic-entity="1">
@@ -107,8 +105,26 @@
 
 <!-- END -->
 
-<script src="lex-web-ui-loader.min.js"></script>
-<script src="./initiate-loader.js"></script>
+<script src="https://d1c49zovjjrg5q.cloudfront.net/lex-web-ui-loader.min.js"></script>
+<script>
+  var loaderOpts = {
+    baseUrl: 'https://d1c49zovjjrg5q.cloudfront.net/',
+    shouldLoadMinDeps: true
+  };
+  var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+  var chatbotUiConfig = {
+          /* Example of setting session attributes on parent page
+          lex: {
+            sessionAttributes: {
+              userAgent: navigator.userAgent,
+              QNAClientFilter: ''
+            }
+          }
+          */
+        };
+  loader.load(chatbotUiConfig)
+    .catch(function (error) { console.error(error); });
+</script>
   
 </body>
 </html>
